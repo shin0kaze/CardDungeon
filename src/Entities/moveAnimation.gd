@@ -1,5 +1,5 @@
-extends Node
 ## В отличии от обычной анимации этот класс сохраняет положение после анимации
+extends Node
 class_name MoveAnimation
 
 var tween: Tween = Tween.new().bind_node(self)

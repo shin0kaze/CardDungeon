@@ -1,6 +1,5 @@
-extends Node
-
 ## Класс управляющий данными расположения карточек на поле
+extends Node
 class_name CardField
 
 #region Свойства класса
