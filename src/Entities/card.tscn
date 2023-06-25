@@ -1,0 +1,160 @@
+[gd_scene load_steps=11 format=3 uid="uid://2drjjot2y0th"]
+
+[ext_resource type="Texture2D" uid="uid://7ljdy7xbsa47" path="res://assets/bg/square.svg" id="1_74thu"]
+[ext_resource type="Script" path="res://src/Entities/moveAnimation.gd" id="2_uk8tr"]
+[ext_resource type="Texture2D" uid="uid://c6nic0auktpl2" path="res://assets/bg/circle.svg" id="3_ukapa"]
+
+[sub_resource type="Animation" id="Animation_g587f"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_dr8bb"]
+resource_name = "selected"
+
+[sub_resource type="Animation" id="Animation_gux6h"]
+resource_name = "attacked"
+
+[sub_resource type="Animation" id="Animation_a62gd"]
+resource_name = "consumed"
+
+[sub_resource type="Animation" id="Animation_pnk7m"]
+resource_name = "action"
+
+[sub_resource type="Animation" id="Animation_hxb5b"]
+resource_name = "flip"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_asj2l"]
+_data = {
+"action": SubResource("Animation_pnk7m"),
+"attacked": SubResource("Animation_gux6h"),
+"consumed": SubResource("Animation_a62gd"),
+"flip": SubResource("Animation_hxb5b"),
+"idle": SubResource("Animation_g587f"),
+"selected": SubResource("Animation_dr8bb")
+}
+
+[node name="Card" type="Node2D"]
+position = Vector2(69, 85)
+
+[node name="Back" type="Sprite2D" parent="."]
+self_modulate = Color(0.482353, 0.65098, 0.854902, 1)
+position = Vector2(0, 2)
+scale = Vector2(1.67187, 2.19531)
+texture = ExtResource("1_74thu")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_asj2l")
+}
+
+[node name="Health" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Health"]
+position = Vector2(-39, -52)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_ukapa")
+
+[node name="Value" type="Label" parent="Health"]
+offset_left = -54.0
+offset_top = -65.0
+offset_right = -32.0
+offset_bottom = -45.0
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "99"
+horizontal_alignment = 1
+
+[node name="Special" type="Node2D" parent="."]
+position = Vector2(78.084, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Special"]
+position = Vector2(-39.084, -52)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_ukapa")
+
+[node name="Value" type="Label" parent="Special"]
+offset_left = -54.0
+offset_top = -65.0
+offset_right = -32.0
+offset_bottom = -45.0
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "99"
+horizontal_alignment = 1
+
+[node name="Attack" type="Node2D" parent="."]
+position = Vector2(0, 109)
+
+[node name="Sprite" type="Sprite2D" parent="Attack"]
+position = Vector2(-39, -53)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_ukapa")
+
+[node name="Value" type="Label" parent="Attack"]
+offset_left = -54.0
+offset_top = -65.0
+offset_right = -32.0
+offset_bottom = -45.0
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "99"
+horizontal_alignment = 1
+
+[node name="Timing" type="Node2D" parent="."]
+position = Vector2(78, 109)
+
+[node name="Sprite" type="Sprite2D" parent="Timing"]
+position = Vector2(-39, -53)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_ukapa")
+
+[node name="Value" type="Label" parent="Timing"]
+offset_left = -54.0
+offset_top = -65.0
+offset_right = -32.0
+offset_bottom = -45.0
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "99"
+horizontal_alignment = 1
+
+[node name="Name" type="Node2D" parent="."]
+position = Vector2(38, 79)
+
+[node name="Sprite" type="Sprite2D" parent="Name"]
+visible = false
+position = Vector2(890.234, -96.9859)
+scale = Vector2(1.48437, 0.309375)
+texture = ExtResource("1_74thu")
+offset = Vector2(-625, 142.5)
+
+[node name="Value" type="Label" parent="Name"]
+offset_left = -81.0
+offset_top = -65.0
+offset_right = -19.0
+offset_bottom = -41.0
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 9
+text = "AngryGoblin
+GoingRage"
+clip_text = true
+
+[node name="MoveAnimation" type="Node" parent="."]
+script = ExtResource("2_uk8tr")
