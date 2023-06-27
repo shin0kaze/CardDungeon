@@ -1,8 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://2drjjot2y0th"]
+[gd_scene load_steps=12 format=3 uid="uid://2drjjot2y0th"]
 
 [ext_resource type="Texture2D" uid="uid://7ljdy7xbsa47" path="res://assets/bg/square.svg" id="1_74thu"]
+[ext_resource type="Script" path="res://src/Entities/card.gd" id="1_txvua"]
 [ext_resource type="Script" path="res://src/Entities/moveAnimation.gd" id="2_uk8tr"]
 [ext_resource type="Texture2D" uid="uid://c6nic0auktpl2" path="res://assets/bg/circle.svg" id="3_ukapa"]
+
+[sub_resource type="Animation" id="Animation_pnk7m"]
+resource_name = "action"
+
+[sub_resource type="Animation" id="Animation_gux6h"]
+resource_name = "attacked"
+
+[sub_resource type="Animation" id="Animation_a62gd"]
+resource_name = "consumed"
+
+[sub_resource type="Animation" id="Animation_hxb5b"]
+resource_name = "flip"
 
 [sub_resource type="Animation" id="Animation_g587f"]
 resource_name = "idle"
@@ -22,18 +35,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_dr8bb"]
 resource_name = "selected"
 
-[sub_resource type="Animation" id="Animation_gux6h"]
-resource_name = "attacked"
-
-[sub_resource type="Animation" id="Animation_a62gd"]
-resource_name = "consumed"
-
-[sub_resource type="Animation" id="Animation_pnk7m"]
-resource_name = "action"
-
-[sub_resource type="Animation" id="Animation_hxb5b"]
-resource_name = "flip"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_asj2l"]
 _data = {
 "action": SubResource("Animation_pnk7m"),
@@ -46,6 +47,7 @@ _data = {
 
 [node name="Card" type="Node2D"]
 position = Vector2(69, 85)
+script = ExtResource("1_txvua")
 
 [node name="Back" type="Sprite2D" parent="."]
 self_modulate = Color(0.482353, 0.65098, 0.854902, 1)
