@@ -11,15 +11,13 @@ func _ready():
 	tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 
 ## Добавляет анимацию последовательно
-func move(pos: Vector2, dur: float = 0.4, easing: int = Tween.EASE_IN_OUT, trans: int = Tween.TRANS_LINEAR):
+func move(pos: Vector2 = parent.position, dur: float = 0.4, easing: int = Tween.EASE_IN_OUT, trans: int = Tween.TRANS_LINEAR):
 	tween.set_parallel(false)
 	tween.tween_property(parent, "position", pos, dur).set_ease(easing).set_trans(trans)
 	return self
 
 ## Добавляет анимацию параллельно
-func movp(pos: Vector2, dur: float = 0.4, easing: int = Tween.EASE_IN_OUT, trans: int = Tween.TRANS_LINEAR):
+func movp(pos: Vector2  = parent.position, dur: float = 0.4, easing: int = Tween.EASE_IN_OUT, trans: int = Tween.TRANS_LINEAR):
 	tween.set_parallel(false)
 	tween.tween_property(parent, "position", pos, dur).set_ease(easing).set_trans(trans)
 	return self
-
-
