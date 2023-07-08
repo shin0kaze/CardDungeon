@@ -12,16 +12,27 @@ config_version=5
 
 config/name="CardDungeon"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon.svg"
+#config/icon="res://icon.svg"
 
 [autoload]
 
-C="*res://src/global/const.gd"
+UTILS="*res://src/utils.global.gd"
+BUS="*res://src/bus.global.gd"
+MATH="*res://src/math.global.gd"
+_="*res://src/global.gd"
+
+[debug]
+
+gdscript/warnings/shadowed_variable=0
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/FileSystemView/plugin.cfg")
 
 [rendering]
 

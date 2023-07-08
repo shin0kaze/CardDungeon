@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfhi84c702r6h"]
+
+[ext_resource type="Script" path="res://src/convert.tool.gd" id="1_hrpl5"]
+
+[node name="tool" type="Node"]
+script = ExtResource("1_hrpl5")
+uid_str = "uid://dfhi84c702r6h"
+convert_uid_button = null
+uid_str_result = "7525203108444063697"

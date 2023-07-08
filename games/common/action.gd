@@ -7,7 +7,7 @@ var message: StringName = "Unknown action"
 ## Сигнал, который имеет источникк, на который можено подписаться.
 var signalToSubscribe: Signal
 ## Не имеет ли функция сайд эффектов, которые нужно выполнить перед вызовом следующей
-var pure: 
+var pure:
 	get:
 		bool(signalToSubscribe == null)
 ## Если функции можно запускать параллельно несмотря на сайдэффекты,

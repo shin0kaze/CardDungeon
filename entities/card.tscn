@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://2drjjot2y0th"]
 
-[ext_resource type="Texture2D" uid="uid://7ljdy7xbsa47" path="res://assets/bg/square.svg" id="1_74thu"]
-[ext_resource type="Script" path="res://src/Entities/card.gd" id="1_txvua"]
-[ext_resource type="Script" path="res://src/Entities/moveAnimation.gd" id="2_uk8tr"]
-[ext_resource type="Texture2D" uid="uid://c6nic0auktpl2" path="res://assets/bg/circle.svg" id="3_ukapa"]
+[ext_resource type="Script" path="res://entities/card.gd" id="1_okjsh"]
+[ext_resource type="Texture2D" uid="uid://7ljdy7xbsa47" path="res://assets/bg/square.svg" id="2_ldgos"]
+[ext_resource type="Texture2D" uid="uid://c6nic0auktpl2" path="res://assets/bg/circle.svg" id="3_qtwq7"]
+[ext_resource type="Script" path="res://entities/moveAnimation.gd" id="4_urm6q"]
 
 [sub_resource type="Animation" id="Animation_pnk7m"]
 resource_name = "action"
@@ -47,13 +47,13 @@ _data = {
 
 [node name="Card" type="Node2D"]
 position = Vector2(69, 85)
-script = ExtResource("1_txvua")
+script = ExtResource("1_okjsh")
 
 [node name="Back" type="Sprite2D" parent="."]
 self_modulate = Color(0.482353, 0.65098, 0.854902, 1)
 position = Vector2(0, 2)
 scale = Vector2(1.67187, 2.19531)
-texture = ExtResource("1_74thu")
+texture = ExtResource("2_ldgos")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -65,7 +65,7 @@ libraries = {
 [node name="Sprite" type="Sprite2D" parent="Health"]
 position = Vector2(-39, -52)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_ukapa")
+texture = ExtResource("3_qtwq7")
 
 [node name="Value" type="Label" parent="Health"]
 offset_left = -54.0
@@ -84,7 +84,7 @@ position = Vector2(78.084, 0)
 [node name="Sprite" type="Sprite2D" parent="Special"]
 position = Vector2(-39.084, -52)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_ukapa")
+texture = ExtResource("3_qtwq7")
 
 [node name="Value" type="Label" parent="Special"]
 offset_left = -54.0
@@ -103,7 +103,7 @@ position = Vector2(0, 109)
 [node name="Sprite" type="Sprite2D" parent="Attack"]
 position = Vector2(-39, -53)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_ukapa")
+texture = ExtResource("3_qtwq7")
 
 [node name="Value" type="Label" parent="Attack"]
 offset_left = -54.0
@@ -122,7 +122,7 @@ position = Vector2(78, 109)
 [node name="Sprite" type="Sprite2D" parent="Timing"]
 position = Vector2(-39, -53)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_ukapa")
+texture = ExtResource("3_qtwq7")
 
 [node name="Value" type="Label" parent="Timing"]
 offset_left = -54.0
@@ -142,7 +142,7 @@ position = Vector2(38, 79)
 visible = false
 position = Vector2(890.234, -96.9859)
 scale = Vector2(1.48437, 0.309375)
-texture = ExtResource("1_74thu")
+texture = ExtResource("2_ldgos")
 offset = Vector2(-625, 142.5)
 
 [node name="Value" type="Label" parent="Name"]
@@ -159,4 +159,4 @@ GoingRage"
 clip_text = true
 
 [node name="MoveAnimation" type="Node" parent="."]
-script = ExtResource("2_uk8tr")
+script = ExtResource("4_urm6q")

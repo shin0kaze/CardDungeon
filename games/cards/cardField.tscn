@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4t7kaa0jpwn"]
+
+[ext_resource type="Script" path="res://games/cards/cardField.gd" id="1_kn2sr"]
+
+[node name="CardField" type="Node2D"]
+position = Vector2(93, 101)
+script = ExtResource("1_kn2sr")

@@ -4,3 +4,7 @@
 addons/
 # Системная папка обсидиана
 .obsidian/
+# Всякие временные ноды для тестов
+src/*playground*
+# VS code файлы
+.vscode

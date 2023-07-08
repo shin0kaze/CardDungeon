@@ -22,7 +22,7 @@ func compare(action1: Action, action2: Action) -> int:
 func sort():
 	queue.sort_custom(compare)
 
-## Начинает обход очереди действий	
+## Начинает обход очереди действий
 func start():
 	sort()
 	pop()
