@@ -8,9 +8,7 @@ const Vector2iMIRR = Vector2i(1, -1)
 
 
 
-## Создает int вектор на основе координат или чисел.
-## Если одно из них null, то оно будет равно противоположному.
-## Если оба, то создается Vector2i(0, 0)
+## Создает int вектор на основе координат или чисел. Если одно из них null, то оно будет равно противоположному. Если оба, то создается Vector2i(0, 0)
 func Vec2ixy(x = null, y = null) -> Vector2i:
 	var vx: int = 0
 	var vy: int = 0
@@ -88,6 +86,10 @@ func maxv2i(v: Vector2i) -> int:
 ## Миксует векторы между собой и возвращает
 func mixv2i(v1: Vector2i, v2: Vector2i = Vector2i.ZERO) -> Array[Vector2i]:
 	return [Vector2i(v1.x, v2.y), Vector2i(v2.x, v1.y)]
+
+## Переможает компоненты вектора
+func v2iS(v: Vector2i) -> int:
+	return v.x * v.y
 
 ## Меняет компоненты вектора местами
 func swapv2i(v: Vector2i) -> Vector2i:

@@ -2,13 +2,21 @@
 extends Node
 class_name MoveAnimation
 
+
+
+## Твин для анимации свойства координат
 @onready var tween: Tween = create_tween()
-@onready var parent: Node2D = $"../"
+## Родительский объект, который нужно перемещать
+@onready var parent: Card = self.get_parent()
+
+
 
 func _ready():
 	tween.bind_node(self)
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_STOP)
 	tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+
+
 
 ## Добавляет анимацию последовательно
 func move(pos: Vector2 = parent.position, dur: float = 0.4, easing: int = Tween.EASE_IN_OUT, trans: int = Tween.TRANS_LINEAR):

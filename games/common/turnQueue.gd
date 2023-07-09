@@ -2,10 +2,18 @@
 extends Node
 class_name TurnQueue
 
-## Вызывается когда закончились все действия
-signal turn_completed
+
+
 ## Очередь действий
 var queue: Array[Action]
+
+
+
+func _init():
+	BUS.unpure_turn_part_ended.connect(pop)
+
+
+
 ## Положить действие в очередь
 func put(action: Action):
 	queue.push_back(action)
@@ -33,11 +41,10 @@ func pop():
 	while action:
 		action.execute()
 		if not action.pure:
-			action.signalToSubscribe.connect(pop)
 			break
 		action = queue.pop_back()
 	if not action:
-		turn_completed.emit()
+		BUS.all_turns_completed.emit()
 
 
 

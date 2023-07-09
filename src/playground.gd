@@ -3,7 +3,7 @@ extends Node2D
 class_name CodeRunner
 
 func _ready():
-	C.dm("Code runned")
+	G.dm("Code runned")
 	run_code()
 
 func run_code():

@@ -19,7 +19,7 @@ config/features=PackedStringArray("4.0", "GL Compatibility")
 UTILS="*res://src/utils.global.gd"
 BUS="*res://src/bus.global.gd"
 MATH="*res://src/math.global.gd"
-_="*res://src/global.gd"
+G="*res://src/global.gd"
 
 [debug]
 

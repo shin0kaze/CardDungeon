@@ -50,6 +50,7 @@ position = Vector2(69, 85)
 script = ExtResource("1_okjsh")
 
 [node name="Back" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 self_modulate = Color(0.482353, 0.65098, 0.854902, 1)
 position = Vector2(0, 2)
 scale = Vector2(1.67187, 2.19531)
@@ -159,4 +160,5 @@ GoingRage"
 clip_text = true
 
 [node name="MoveAnimation" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("4_urm6q")
