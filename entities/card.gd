@@ -14,6 +14,7 @@ const UID: int = 1902340667748967745
 var cardField: CardField
 
 
+
 func _ready():
 	var parent = self.get_parent()
 	cardField = parent if parent is CardField else null
@@ -33,6 +34,11 @@ func size_scaled()->Vector2i:
 ## Делит общий путь на небольшие кусочки твинов с калбеками
 func split(pos: Vector2i, bold_mode: bool = false):
 	pass
+
+## Получает необходимые ходы для дивжений
+func move(move: Line2i, anim_param, split=false):
+	pass
+
 
 
 func _if_root():

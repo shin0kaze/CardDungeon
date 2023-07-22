@@ -26,6 +26,6 @@ func move(pos: Vector2 = parent.position, dur: float = 0.4, easing: int = Tween.
 
 ## Добавляет анимацию параллельно
 func movp(pos: Vector2  = parent.position, dur: float = 0.4, easing: int = Tween.EASE_IN_OUT, trans: int = Tween.TRANS_LINEAR):
-	tween.set_parallel(false)
+	tween.set_parallel(true)
 	tween.tween_property(parent, "position", pos, dur).set_ease(easing).set_trans(trans)
 	return self

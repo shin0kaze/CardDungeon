@@ -2,17 +2,6 @@
 extends Node
 class_name CardField
 
-## Scene uid://b4t7kaa0jpwn
-const UID: int = 131267092040567053
-## Размер игрового поля x в ширину, y в высоту
-var size: Vector2i = Vector2i(0,0)
-## Массив содержащий в себе карточки на поле
-var field: Array[Card] = []
-var finder := CardFinder.new(size, field) #
-var mover := MoveResolver.new(self)
-var posConverter := PosConverter.new()
-#end
-
 
 
 ## Инициализирует поле указанного размера
@@ -30,6 +19,20 @@ func fill(cards: Array) -> void:
 func init_fill(size_of_field: Vector2i, cards: Array) -> void:
 	init(size_of_field)
 	fill(cards)
+
+
+
+## Scene uid://b4t7kaa0jpwn
+const UID: int = 131267092040567053
+## Размер игрового поля x в ширину, y в высоту
+var size: Vector2i = Vector2i(0,0)
+## Массив содержащий в себе карточки на поле
+var field: Array[Card] = []
+var finder := CardFinder.new(size, field) #
+var mover := MoveResolver.new(self)
+var posConverter := PosConverter.new()
+
+
 
 func _ready():
 	_if_main()
@@ -59,5 +62,5 @@ func _if_main():
 			card.position = posConverter.xy_pos(finder.i_xy(i), card.size())
 			print(card.position)
 
-		mover.add_move(Vector2i(0,0), Vector2i(0,1), true)
-		mover.add_move(Vector2i(1,0), Vector2i(1,1), false)
+		#mover.add_move(Vector2i(0,0), Vector2i(0,1), true)
+		#mover.add_move(Vector2i(1,0), Vector2i(1,1), false)
