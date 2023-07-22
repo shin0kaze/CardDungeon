@@ -20,15 +20,21 @@ UTILS="*res://src/utils.global.gd"
 BUS="*res://src/bus.global.gd"
 MATH="*res://src/math.global.gd"
 G="*res://src/global.gd"
+S="*res://src/strings.global.gd"
 
 [debug]
 
+settings/stdout/print_fps=true
+settings/stdout/print_gpu_profile=true
+settings/stdout/verbose_stdout=true
 gdscript/warnings/shadowed_variable=0
 
 [editor]
 
+script/templates_search_path="res://gdignore"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+script/templates_search_path.debug=Rect2i(0, 0, 0, 0)
 
 [editor_plugins]
 
