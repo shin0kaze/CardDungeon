@@ -1,5 +1,9 @@
 # Существующие проблемы и баги
 
+### [GD Templates not working](https://docs.godotengine.org/en/stable/tutorials/scripting/creating_script_templates.html)
+
+Решение: ну и нахер они нужны?
+
 ### Godot custom warnings
 
 Решение: Использовать VS code или [@tool](https://www.youtube.com/watch?v=90XPxd2533c)

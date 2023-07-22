@@ -1,0 +1,83 @@
+# Почитать про styleguide можно здесь https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_styleguide.html> по возможности не плохо бы форматер кода запилить...
+# Как документировать код https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_documentation_comments.html
+# 0.Здесь мы пишем описание зачем этот класс вообще нужен
+
+# В 99% случаев, мы наследуемся от ноды или ресурса. Если мы хотим сделать свою иерархию наследования и не терять API ноды, то забиваем хер и наследуемся от чего хотим. Все равно все свойства ноды доступны
+@icon("")
+extends Node
+class_name __Example
+# Мы не можем получить class_name от неизвестного типа https://github.com/godotengine/godot/issues/21789, надеюсь пофиксят
+const script_class_name: StringName = "__Example"
+
+
+
+# Отступы между разными членами класса 3 линии
+# 1. Идут сигналы, вообще все сигналы, которые используются другими классами, описываются в bus.global.gd (Паттерн event bus)
+signal im_coooming
+signal im_coooming2
+
+
+
+# 2. Сначала идут публичные свойства и поля, грубо говоря API
+# 2.1 Сначала идут константы (отступы между секциями 1 линия)
+const CONST_SMTH: int = 113
+# Возможно исключение для Dictionary потому что оно работает как static (welcome to c++), поэтому нужно смотреть по семантике использования
+const Dicktionary:= {}
+const Weapon = preload("res://weapon.gd") # Хотя мне не нравится это правило, оно затирает типы. Если для c# это не критично из за IntelliSense и прочего, то для годо...
+
+# По возможности стоит заменять явное указаение типя на выведение оного :=, с версии Godot 4 присутствуют оптимизации, если у переменных указаны типы
+# 2.2 Свойства которые можно использовать
+var the_thing:= Node.new()
+var __Example = null
+
+# 2.3 Свойства на экспорт
+@export var anything: Node
+
+# Гетеры сеттеры,без явного указания переменных!!! ну или так -> set = _set_health, get = _get_health
+# 2.4 Свойства доступные при инициализации
+@onready var cringe: = 100:
+	set(new_cringe):
+		cringe = new_cringe
+	get:
+		return cringe
+	
+
+
+# 3. потом конструктор, который по хорошему должен иметь только опциональные параметры
+func _init() -> void:
+	pass
+
+
+
+# 4. далее функции жизненного цикла
+func _ready() -> void:
+	pass
+
+
+func _process(delta: float) -> void: 
+	pass
+# Если функция не задокументирована два отступа, если да, то можно один.
+
+
+# 5. Далее пользовательские функии
+func do_work():
+	print("Nooo!")
+	func do(): # forbidden
+		pass
+
+
+# 6. Затем приватные члены
+var _gone = 2
+
+# ====================================
+
+# >Исключение для типов, по которым понятно что они содержат только константы, их члены пишутся PascalCaase<
+enum LivingBeings {
+	Lion,
+	Tiger,
+	Cow,
+	}
+
+#region Myregion надо создать шаблон для скриптов...
+var whatever
+#endregion

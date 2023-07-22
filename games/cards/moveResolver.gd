@@ -2,6 +2,7 @@
 class_name MoveResolver extends RefCounted
 
 
+
 ## Игровое поле
 var cardField: CardField
 ## Очередь на действия перемещений
@@ -16,8 +17,8 @@ func _init(cardField: CardField):
 func _process(_delta):
 	var field_copy = cardField.take_field()
 	for move in moveQueue:
-		var card1_i = cardField.xy_i(move['cur_coord'])
-		var card2_i = cardField.xy_i(move['tar_coord'])
+		var card1_i = cardField.xy_i(move['move'].src)
+		var card2_i = cardField.xy_i(move['move'].dst)
 		var card1 = field_copy[card1_i]
 		var card2 = field_copy[card2_i]
 		field_copy[card2_i] = card1
@@ -28,9 +29,5 @@ func _process(_delta):
 
 
 ## Гарантирует, что добавленные перемещения на следующем тике игры будут добавлены одновременно
-func add_move(cur_coord: Vector2i, tar_coord: Vector2i, swap_mode: bool)->void:
-	moveQueue.append({cur_coord: cur_coord, tar_coord: tar_coord, swap_mode: swap_mode})
-
-
-
-
+func add_move(move: Line2i, swap_mode: bool)->void:
+	moveQueue.append({move: move, swap_mode: swap_mode})
